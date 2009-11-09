@@ -10,7 +10,8 @@
     <RootNamespace>DSPUtil</RootNamespace>
     <AssemblyName>DSPUtil</AssemblyName>
     <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>inguzaudio.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -85,9 +86,6 @@
     <Compile Include="SweepGenerator.cs" />
     <Compile Include="WaveWriter.cs" />
     <Compile Include="Windows.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="inguzaudio.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt" />

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-// Copyright (c) 2006, 2007 by Hugh Pyle, inguzaudio.com
+// Copyright (c) 2006, 2009 by Hugh Pyle, inguzaudio.com
 
 namespace DSPUtil
 {
@@ -10,8 +10,8 @@ namespace DSPUtil
     public class DSPUtil
     {
         public const int BUFSIZE = 8192; // 512;
-        public static Version VERSION { get { return new Version("0.9.31"); } }
-        public static DateTime EXPIRY { get { return new DateTime(2010, 06, 01); } }  // expire June 1st 2010
+        public static Version VERSION { get { return new Version("0.9.32"); } }
+        public static DateTime EXPIRY { get { return DateTime.MaxValue; } }  // expire just about never
         public static String GetVersionInfo()
         {
             string s = String.Format("version {0}{1}", VERSION, IsMono() ? " on Mono" : "");
