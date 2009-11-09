@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-// Copyright (c) 2006 by Hugh Pyle, inguzaudio.com
+// Copyright (c) 2006, 2009 by Hugh Pyle, inguzaudio.com
 
 namespace DSPUtil
 {
+    /// <summary>
+    /// Logging of trace messages: Trace.Write(...)
+    /// 
+    /// Trace messgaes go to one of the three possible outputs:
+    /// - some TextWriter you preprared earlier, or
+    /// - the console, or
+    /// - a text file on disk.  The location of the text file is set in the app's config, "trace" value.
+    /// </summary>
     public class Trace
     {
         private static bool _init; // = false;
@@ -37,6 +45,9 @@ namespace DSPUtil
         }
 
         private static string _prefix = "";
+        /// <summary>
+        /// Prefix string for each message, only used with textfile trace (e.g. to disambiguate across processes)
+        /// </summary>
         public static string Prefix
         {
             set
@@ -65,6 +76,11 @@ namespace DSPUtil
             return (_init && _tracefile!=null);
         }
 
+        /// <summary>
+        /// Write a trace message.
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
         public static void Write(string format, params object[] args)
         {
             //          System.Diagnostics.Trace.WriteLine(String.Format(format, args));
@@ -92,11 +108,19 @@ namespace DSPUtil
             }
         }
 
+        /// <summary>
+        /// Write a trace newline.
+        /// </summary>
         public static void WriteLine()
         {
             Trace.Write(System.Environment.NewLine);
         }
 
+        /// <summary>
+        /// Write a trace message and newline.
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
         public static void WriteLine(string format, params object[] args)
         {
             Trace.Write(format + System.Environment.NewLine, args);
